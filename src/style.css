@@ -104,7 +104,7 @@ input.submit-button:hover {
   background-color: #21867a;
 }
 
-.poem {
+.result {
   max-width: 500px;
   margin: 20px auto;
   font-style: italic;

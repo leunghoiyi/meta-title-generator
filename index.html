@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI French Poem Generator</title>
+    <title>AI Meta Title Generator</title>
     <link rel="stylesheet" href="src/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   </head>
   <body>
     <header>
-      <h1>Welcome to the AI French Poem Generator!</h1>
+      <h1>Welcome to the AI Meta Title Generator!</h1>
     </header>
     <main>
-      <form id="poem-generator-form">
+      <form id="meta-title-generator-form">
         <div class="tooltip-wrapper">
           <input
             type="text"
-            placeholder="Enter the topic of the poem"
+            placeholder="Enter a target keyword"
             required
             autocomplete="off"
             class="topic"
@@ -25,19 +25,53 @@
           />
           <span class="tooltip-icon">?</span>
           <span class="tooltip-text">
-            Enter a topic like “love”, “autumn”, or “the sea” to generate a
-            4-line French poem.
+            Enter a keyword like “London travel”, “best credit cards”, or “home
+            workouts” to generate a compelling SEO meta title.
           </span>
         </div>
         <input type="submit" class="submit-button" />
       </form>
-      <div class="poem hidden" id="poem"></div>
+      <div class="result hidden" id="result"></div>
     </main>
     <footer>
       This AI project is coded by
       <a href="https://github.com/leunghoiyi">Hoi Yi LEUNG</a> and is hosted on
       <a href="https://glittery-salamander-a23233.netlify.app/">Netlify</a>.
     </footer>
-    <script src="src/index.js"></script>
+    <script>
+      function displayMetaTitle(response) {
+        new Typewriter("#result", {
+          strings: response.data.answer,
+          autoStart: true,
+          cursor: "",
+        });
+      }
+
+      function generateMetaTitle(event) {
+        event.preventDefault();
+        let topicInput = document.querySelector("#topic");
+        let apiKey = "40f3565eaf0bo04aae2b14bt5e3ebe6f";
+        let prompt = `Write a compelling SEO meta title (under 60 characters) targeting the keyword: "${topicInput.value}".`;
+        let context =
+          "You are an expert SEO copywriter specializing in writing concise, high-CTR meta titles.";
+
+        let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(
+          prompt
+        )}&context=${encodeURIComponent(context)}&key=${apiKey}`;
+
+        let resultElement = document.querySelector("#result");
+        resultElement.classList.remove("hidden");
+        resultElement.classList.add("blinking");
+        resultElement.innerHTML = `Generating a meta title for "${topicInput.value}"...`;
+
+        axios.get(apiUrl).then((response) => {
+          resultElement.classList.remove("blinking");
+          displayMetaTitle(response);
+        });
+      }
+
+      let formElement = document.querySelector("#meta-title-generator-form");
+      formElement.addEventListener("submit", generateMetaTitle);
+    </script>
   </body>
 </html>
