@@ -14,18 +14,24 @@
     </header>
     <main>
       <form id="poem-generator-form">
-        <input
-          type="text"
-          placeholder="Enter the topic of the poem"
-          autofocus
-          required
-          autocomplete="off"
-          class="topic"
-          id="topic"
-        />
+        <div class="tooltip-wrapper">
+          <input
+            type="text"
+            placeholder="Enter the topic of the poem"
+            required
+            autocomplete="off"
+            class="topic"
+            id="topic"
+          />
+          <span class="tooltip-icon">?</span>
+          <span class="tooltip-text">
+            Enter a topic like “love”, “autumn”, or “the sea” to generate a
+            4-line French poem.
+          </span>
+        </div>
         <input type="submit" class="submit-button" />
       </form>
-      <div class="poem" id="poem"></div>
+      <div class="poem hidden" id="poem"></div>
     </main>
     <footer>
       This AI project is coded by
