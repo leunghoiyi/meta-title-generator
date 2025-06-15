@@ -1,5 +1,5 @@
 body {
-  font-family: "Georgia", serif;
+  font-family: "Lora", serif;
   background-color: #fdf6ec;
   color: #3a2e2e;
   margin: 0;
@@ -9,27 +9,29 @@ body {
 header {
   background-color: #f4a261;
   color: #fff;
-  padding: 20px;
+  padding: 24px;
   text-align: center;
   border-bottom: 5px solid #e76f51;
 }
 
 header h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
 }
 
 form {
   max-width: 500px;
-  margin: 30px auto;
-  padding: 20px;
+  margin: 40px auto;
+  padding: 24px;
   background-color: #fff0db;
   border: 2px solid #e9c46a;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  gap: 18px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 .hidden {
@@ -47,6 +49,7 @@ input.topic {
   flex-grow: 1;
   padding: 12px;
   font-size: 1rem;
+  font-family: "Lora", serif;
   border: 1px solid #ccc;
   border-radius: 6px;
   background-color: #fff;
@@ -82,6 +85,7 @@ input.topic {
   z-index: 10;
   width: 100%;
   pointer-events: none;
+  font-family: "Lora", serif;
 }
 
 .tooltip-wrapper:hover .tooltip-text {
@@ -98,6 +102,7 @@ input.submit-button {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: "Playfair Display", serif;
 }
 
 input.submit-button:hover {
@@ -113,6 +118,10 @@ input.submit-button:hover {
   padding: 20px;
   border-radius: 10px;
   white-space: pre-line;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #4b3d3d;
 }
 
 footer {
@@ -121,6 +130,7 @@ footer {
   margin: 40px auto;
   padding: 20px;
   color: #6c584c;
+  font-family: "Lora", serif;
 }
 
 footer a {
